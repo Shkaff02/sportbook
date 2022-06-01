@@ -1,0 +1,5 @@
+package com.polytech.sportbook.domain;
+
+public enum RESERVE_STATUS{
+    RESERVED, BOOKED, RESERVE_CANCELED, BOOK_CANCELED, OWNER_RESERVE, OWNER_RESERVE_CANCELED
+}
