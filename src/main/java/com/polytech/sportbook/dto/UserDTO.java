@@ -1,8 +1,11 @@
 package com.polytech.sportbook.dto;
 
+import com.polytech.sportbook.domain.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Collection;
 
 @Data
 @NoArgsConstructor
@@ -15,5 +18,7 @@ public class UserDTO {
     private String phoneNumber;
     private String email;
     private String userName;
+    
+    private Collection<Role> roles;
 
 }

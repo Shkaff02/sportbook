@@ -1,5 +1,6 @@
 package com.polytech.sportbook.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,14 +17,14 @@ import java.util.Set;
 @Data
 public class User {
     public User(String firstName, String lastName, String parentName, String phoneNumber, String email,
-                String userName, LocalDateTime registeredAt, String password, Collection<Role> roles){
+                String userName, String password, Collection<Role> roles){
         this.firstName = firstName;
         this.lastName = lastName;
         this.parentName = parentName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.userName = userName;
-        this.registeredAt = registeredAt;
+        this.registeredAt = LocalDateTime.now();
         this.roles = roles;
         this.password = password;
     }
@@ -43,6 +44,7 @@ public class User {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Collection<Role> roles = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Order> orders = new HashSet<>();
 }

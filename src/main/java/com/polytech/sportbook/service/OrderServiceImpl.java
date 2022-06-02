@@ -75,6 +75,6 @@ public class OrderServiceImpl implements OrderService{
         }
         order.setDateOfPayment(new Date());
 
-        return orderRepository.save(null);
+        return orderRepository.save(order);
     }
 }

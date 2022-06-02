@@ -35,6 +35,7 @@ public class SportObject {
     @JoinColumn(name = "own_id", referencedColumnName = "id")
     private Owner owner;
 
-    @OneToMany(mappedBy = "sportObject")
+    @JsonIgnore
+    @OneToMany(mappedBy = "sportObject", fetch = FetchType.LAZY)
     private Set<Event> events = new HashSet<>();
 }
