@@ -28,14 +28,13 @@ public class SportObject {
     private Collection<Category> categories = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "object")
+    @OneToMany(mappedBy = "object", fetch = FetchType.LAZY)
     private Set<Order> orders = new HashSet<>();
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "own_id", referencedColumnName = "id")
     private Owner owner;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "sportObject", fetch = FetchType.LAZY)
     private Set<Event> events = new HashSet<>();
 }
