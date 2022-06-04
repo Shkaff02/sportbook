@@ -72,8 +72,8 @@ public class OrderServiceImpl implements OrderService{
         if(order != null) {
             order.setReserveStatus(RESERVE_STATUS.BOOKED);
             order.setPayStatus(PAY_STATUS.PAYED);
+            order.setDateOfPayment(new Date());
         }
-        order.setDateOfPayment(new Date());
 
         return orderRepository.save(order);
     }
