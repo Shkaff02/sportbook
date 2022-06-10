@@ -19,6 +19,7 @@ public class Event {
     private String description;
     private LocalDateTime dateTime;
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "obj_id", referencedColumnName = "id")
     private SportObject sportObject;
